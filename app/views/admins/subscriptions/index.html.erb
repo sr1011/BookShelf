@@ -1,0 +1,11 @@
+<h1>サブスクリプションメニュー一覧</h1>
+<% @subscriptions.each do |subscription| %>
+  <p>タイトル</p>
+  <span><%= subscription.title %></span>
+  <p>説明</p>
+  <span><%= subscription.descript %></span>
+  <p>価格</p>
+  <span><%= subscription.price %></span>
+  <%= link_to "編集", edit_admins_subscription_path(subscription.id),class: 'btn btn-success' %>
+  <%= link_to "削除する", admins_subscription_path(subscription.id), method: :delete, class: 'btn btn-danger' %>
+<% end %>

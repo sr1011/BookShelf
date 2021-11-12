@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="mb-5 col-3 text-center heading_background_color">新規入会</h3>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <div class="col-12">
+    <div class="mb-2">
+      <span class="col-3">名前</span>
+    （姓）  <%= f.text_field :last_name, placeholder: "令和"  %>
+    （名）  <%= f.text_field :first_name, placeholder: "道子" %>
+    </div>
+
+    <div class="mb-2">
+    <span class="col-3">メールアドレス</span>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  
+    <div class="mb-2">
+    <span class="col-3">郵便番号（ハイフンなし）</span>
+    <%= f.text_field :postal_code, placeholder: "0000000" %>
+    </div>
+  
+    <div class="mb-2">
+    <span class="col-3">住所</span>
+    <%= f.text_field :address, size: 50, placeholder: "東京都渋谷区代々木神園町0-0" %>
+    </div>
+  
+    <div class="mb-2">
+    <span class="col-3">電話番号（ハイフンなし）</span>
+    <%= f.text_field :phone_number,placeholder: "0000000000" %>
+    </div>
+
+    <div class="mb-2">
+    <span class="col-3">パスワード（6文字以上）</span>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="mb-2">
+    <span class="col-3">パスワード（確認）</span>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+    <span class="col-3"></span>
+    <%= f.submit "登録" %>
+    </div>
+  </div>  
+<% end %>
+
+<%= render "devise/shared/links" %>

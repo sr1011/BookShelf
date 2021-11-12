@@ -10,7 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_062808) do
+ActiveRecord::Schema.define(version: 2021_11_12_073729) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.integer "genre_id"
+    t.integer "review_id"
+    t.integer "favorite_id"
+    t.string "name"
+    t.string "descript"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_active"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "title"
+    t.integer "price"
+    t.string "descript"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  #create_table "subscriptons", force: :cascade do |t|
+    #t.string "title"
+    #t.integer "price"
+    #t.string "descript"
+    #t.datetime "created_at", null: false
+    #t.datetime "updated_at", null: false
+  #end
+
+  #create_table "subscrptons", force: :cascade do |t|
+    #t.string "title"
+    #t.integer "price"
+    #t.string "descript"
+    #t.datetime "created_at", null: false
+    #t.datetime "updated_at", null: false
+  #end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_11_11_062808) do
     t.string "address"
     t.string "phone_number"
     t.boolean "is_deleted"
+    t.integer "bookshelf_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

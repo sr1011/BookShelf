@@ -1,0 +1,10 @@
+<h1>編集</h1>
+<%= form_with model: @subscription, url:"/admins/subscriptions/#{@subscription.id}/edit", local:true do |f| %>
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+  <h4>説明</h4>
+  <%= f.text_area :descript %>
+  <h4>価格</h4>
+  <%= f.text_field :price %>円
+  <%= f.submit '保存' %>
+<% end %>
