@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_12_073729) do
+ActiveRecord::Schema.define(version: 2021_11_14_062719) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 2021_11_12_073729) do
     t.boolean "is_active"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "title"
     t.integer "price"
@@ -44,21 +50,21 @@ ActiveRecord::Schema.define(version: 2021_11_12_073729) do
     t.datetime "updated_at", null: false
   end
 
-  #create_table "subscriptons", force: :cascade do |t|
-    #t.string "title"
-    #t.integer "price"
-    #t.string "descript"
-    #t.datetime "created_at", null: false
-    #t.datetime "updated_at", null: false
-  #end
+  create_table "subscriptons", force: :cascade do |t|
+    t.string "title"
+    t.integer "price"
+    t.string "descript"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-  #create_table "subscrptons", force: :cascade do |t|
-    #t.string "title"
-    #t.integer "price"
-    #t.string "descript"
-    #t.datetime "created_at", null: false
-    #t.datetime "updated_at", null: false
-  #end
+  create_table "subscrptons", force: :cascade do |t|
+    t.string "title"
+    t.integer "price"
+    t.string "descript"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
