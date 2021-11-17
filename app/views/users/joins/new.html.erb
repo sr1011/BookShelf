@@ -1,0 +1,14 @@
+
+<h4>注文情報入力</h4>
+ <%= form_with(url: users_joins_path, method: :post, local:true) do |form| %>
+   <h5>支払方法</h5>
+        <h5>
+        <%= form.radio_button :payment_method, 0 ,checked: true%>
+        <%= form.label :payment_method_credit_card, 'クレジットカード' %>
+        </h5>
+        <h5>
+        <%= form.radio_button :payment_method, 1 %>
+        <%= form.label :payment_method_transfer, '銀行払い' %>
+        </h5>
+        <%= form.submit "確認画面へ進む", class: 'btn btn-success btn-lg'%>
+ <% end %>

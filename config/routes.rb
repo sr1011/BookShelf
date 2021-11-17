@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
+  
+  root 'homes#top'
+  get 'homes/about'
 
   namespace :users do
-    get 'subscriptions/index'
+    resources :subscriptions, only: [:index, :show]
+    resources :joins, only: [:new, :create]
+    get "joins/confirm" => "joins#confirm"
+    post "joins/confirm" => "joins#confirm"
+    get "joins/complete" => "joins#complete"
   end
+  
+  devise_for :users, controllers: {
+  sessions:      'users/sessions',
+  passwords:     'users/passwords',
+  registrations: 'users/registrations'
+}
   
   namespace :admins do
     resources :subscriptions, only: [:index, :new, :create, :destroy, :edit, :update]
@@ -16,14 +29,6 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
 
-
-  devise_for :users, controllers: {
-  sessions:      'users/sessions',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations'
-}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-root 'homes#top'
-get 'homes/about'
 
 end

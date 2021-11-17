@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="mb-5 col-3 text-center heading_background_color">新規入会</h3>
+      <h3 class="mb-5 col-3 text-center heading_background_color">個人情報入力</h3>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -45,7 +45,7 @@
 
     <div class="actions">
     <span class="col-3"></span>
-    <%= f.submit "登録" %>
+    <%= f.submit "次へ" %>
     </div>
   </div>  
 <% end %>
