@@ -1,0 +1,22 @@
+  <div class="container">
+    <div class="row">
+         <table>
+           <tbody>
+              <% @join_carts.each do |join_cart| %>
+                <tr>
+                  <td>
+                    <%= join_cart.subscription.title %>
+                  </td>
+                  <td>
+                    <%= join_cart.subscription.descript %>
+                  </td>
+                  <td>
+                    <% tax_in = join_cart.subscription.price %>
+                      <%= tax_in.to_s(:delimited) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+   </div>
+ </div>

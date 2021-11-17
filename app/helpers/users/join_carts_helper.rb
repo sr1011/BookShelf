@@ -1,0 +1,2 @@
+module Users::JoinCartsHelper
+end

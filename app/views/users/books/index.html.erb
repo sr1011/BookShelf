@@ -1,0 +1,12 @@
+<h1>Book一覧</h1>
+
+<% @books.each do |book| %>
+  <%= attachment_image_tag book, :image, :fill, 100, 100, format: 'jpeg' %>
+  <p>タイトル</p>
+  <span><%= book.name %></span>
+  <p>説明</p>
+  <span><%= book.descript %></span>
+  <p>ジャンル</p>
+  <span><%= book.genre.name %></span>
+  <%= link_to "詳細",users_book_path(book.id) %>
+<% end %>

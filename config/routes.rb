@@ -5,10 +5,12 @@ Rails.application.routes.draw do
 
   namespace :users do
     resources :subscriptions, only: [:index, :show]
+    resources :join_carts, only: [:index, :create]
     resources :joins, only: [:new, :create]
     get "joins/confirm" => "joins#confirm"
     post "joins/confirm" => "joins#confirm"
     get "joins/complete" => "joins#complete"
+    resources :books, only: [:index, :show]
   end
   
   devise_for :users, controllers: {
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   
   namespace :admins do
     resources :subscriptions, only: [:index, :new, :create, :destroy, :edit, :update]
-    resources :books, only: [:new, :index, :create, :edit, :update, :destroy, :show]
+    resources :books, only: [:new, :index, :create, :edit, :update, :destroy]
     resources :genres, only: [:index, :edit, :create, :destroy, :update]
   end
 

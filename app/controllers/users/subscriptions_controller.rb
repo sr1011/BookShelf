@@ -5,5 +5,6 @@ class Users::SubscriptionsController < ApplicationController
   
   def show
     @subscription = Subscription.find(params[:id])
+    @join_cart = JoinCart.new
   end
 end

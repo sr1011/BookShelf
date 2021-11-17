@@ -1,12 +1,11 @@
 <h1>Book詳細</h1>
 
   <h4>商品画像</h4>
-  <%= @book.image %>
+  <%= attachment_image_tag @book, :image, :fill, 100, 100, format: 'jpeg' %>
   <h4>タイトル</h4>
   <%= @book.name %>
   <h4>本文</h4>
   <%= @book.descript %>
   <h4>ジャンル</h4>
-  <%= @book.genre_id %>
+  <%= @book.genre.name %>
   
-<% end %>

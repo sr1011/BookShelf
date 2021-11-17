@@ -1,6 +1,6 @@
 
 <h4>注文情報入力</h4>
- <%= form_with(url: users_joins_path, method: :post, local:true) do |form| %>
+ <%= form_with model:@join, url: users_joins_path, method: :post, local:true do |form| %>
    <h5>支払方法</h5>
         <h5>
         <%= form.radio_button :payment_method, 0 ,checked: true%>

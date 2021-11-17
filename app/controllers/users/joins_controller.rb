@@ -1,17 +1,19 @@
 class Users::JoinsController < ApplicationController
   
   def new
-    @join = current_user.Join.new(join_params)
+    @join = Join.new
+    @user = current_user
+    @join_carts = current_user.join_carts
   end
 
   def create
-    @join = current_user.Join.new(join_params)
+    @join = Join.new(join_params)
     @join.save
-    redirect_to root
+    redirect_to users_joins_confirm_path
   end
 
   def confirm
-    @joins = current_member.joins.
+    @join_carts = current_user.join_carts
   end
 
   def complete
@@ -19,8 +21,8 @@ class Users::JoinsController < ApplicationController
   
   private
   def join_params
-    params.require(:join).permit(:user_id, :subscription_id, :payment_method)
+    params.require(:join).permit(:subscription_id, :user_id, :payment_method)
   end
   
-  end
+  
 end
