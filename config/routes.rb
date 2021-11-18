@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   namespace :users do
     resources :subscriptions, only: [:index, :show]
-    resources :join_carts, only: [:index, :create]
-    resources :joins, only: [:new, :create]
-    get "joins/confirm" => "joins#confirm"
-    post "joins/confirm" => "joins#confirm"
-    get "joins/complete" => "joins#complete"
-    resources :books, only: [:index, :show]
+    resources :join_carts, only: [:index, :create, :destroy]
+    get "join_carts/confirm" => "join_carts#confirm"
+    post "join_carts/confirm" => "join_carts#confirm"
+    get "join_carts/complete" => "join_carts#complete"
+    resources :books, only: [:index, :show] do
+     resources :book_comments, only: [:create, :destroy]
+    end
+    resources :book_carts, only: [:create, :destroy]
   end
   
   devise_for :users, controllers: {

@@ -5,5 +5,7 @@ class Users::BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @book_cart = BookCart.new
+    @book_comment = BookComment.new
   end
 end

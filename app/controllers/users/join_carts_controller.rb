@@ -11,7 +11,7 @@ class Users::JoinCartsController < ApplicationController
 
   private
   def join_cart_params
-    params.require(:join_cart).permit(:subscription_id, :user_id)
+    params.require(:join_cart).permit(:subscription_id, :user_id, :payment_method)
   end
   
 end

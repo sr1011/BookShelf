@@ -8,5 +8,6 @@
   <span><%= book.descript %></span>
   <p>ジャンル</p>
   <span><%= book.genre.name %></span>
+  <p><%= "#{book.book_comments.count} コメント" %></p>
   <%= link_to "詳細",users_book_path(book.id) %>
 <% end %>
