@@ -1,0 +1,4 @@
+<% if @model == 'book' %>
+  <h3>【Postsモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'users/books/index', books: @records %>
+<% end %>
