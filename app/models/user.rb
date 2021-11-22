@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :book_carts, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :contacts, dependent: :destroy
 end

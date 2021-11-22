@@ -17,13 +17,13 @@
     </p>
     <% else %>
     <p>
-      <%= link_to users_book_favorites_path(@book), method: :post do %>
+      <%= link_to book_favorites_path(@book), method: :post do %>
         ♡<%= @book.favorites.count %> いいね
       <% end %>
     </p>
   <% end %>
 
-  <%= form_with model:@book_cart, url:users_book_carts_path, method: :post, local:true do |f|%>
+  <%= form_with model:@book_cart, url:book_carts_path, method: :post, local:true do |f|%>
   <%= f.hidden_field :book_id, value: @book.id %>
   <%= f.submit 'my本棚へ', class:"btn btn-primary" %>
   <% end %>

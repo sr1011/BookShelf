@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  namespace :admins do
+    get 'users/index'
+    get 'users/show'
+    get 'users/edit'
+  end
   root 'homes#top'
   get 'homes/about'
   get '/search', to: 'searchs#search'
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
      resource :favorites, only: [:create, :destroy]
     end
     resources :book_carts, only: [:create, :destroy]
+    resources :contacts, only: [:new, :create, :destroy, :index]
   end
   
   devise_for :users, controllers: {
@@ -32,6 +38,8 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:index, :new, :create, :destroy, :edit, :update]
     resources :books, only: [:new, :index, :create, :edit, :update, :destroy]
     resources :genres, only: [:index, :edit, :create, :destroy, :update]
+    resources :contacts, only: [:index]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   devise_for :admins, controllers: {
