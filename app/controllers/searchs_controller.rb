@@ -18,7 +18,7 @@ class SearchsController < ApplicationController
       if method == 'perfect'
       Book.where(name: content)
       else
-        Book.where('title LIKE ?', '%'+content+'%')
+        Book.where('name LIKE ?', '%'+content+'%')
       end
     end
   end

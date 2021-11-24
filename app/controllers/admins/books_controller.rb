@@ -1,6 +1,7 @@
 class Admins::BooksController < ApplicationController
   def new
     @book = Book.new
+    @genres = Genre.all
   end
   
   def create
@@ -11,6 +12,7 @@ class Admins::BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @genres = Genre.all
   end
 
   def show
@@ -18,6 +20,7 @@ class Admins::BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    @genres = Genre.all
   end
   
   def update
@@ -33,7 +36,7 @@ class Admins::BooksController < ApplicationController
   end
   
   def book_params
-    params.require(:book).permit(:name, :image, :descript, :genre_id, :is_active)
+    params.require(:book).permit(:name, :image, :author, :descript, :genre_id, :is_active)
   end
   
 end

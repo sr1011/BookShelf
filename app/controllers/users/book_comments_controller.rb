@@ -8,7 +8,8 @@ class Users::BookCommentsController < ApplicationController
   end
 
   def destroy
-    BookComment.find_by(id: params[:id]).destroy
+    book_comment = BookComment.find_by(id: params[:id])
+    book_comment.destroy
     redirect_to users_book_path(params[:book_id])
   end
   

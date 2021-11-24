@@ -1,16 +1,39 @@
-<h1>my本棚</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= render "users/users/show", users: @users %>
+      <%= render "users/books/genre", genres: @genres %>
+    </div>
 
-<% @book_carts.each do |book_cart| %>
-  <%= attachment_image_tag book_cart.book, :image, :fill, 100, 100, format: 'jpeg' %>
-  <p>タイトル</p>
-  <span><%= book_cart.book.name %></span>
-  <p>説明</p>
-  <span><%= book_cart.book.descript %></span>
-  <p>ジャンル</p>
-  <span><%= book_cart.book.genre.name %></span>
-  <p><%= "#{book_cart.book.book_comments.count} コメント" %></p>
-  <p><%= "#{book_cart.book.favorites.count} いいね" %></p>
-  <%= link_to "詳細",users_book_path(book_cart.book.id), class:"btn btn-primary" %>
-  <%= link_to "読む",users_user_path(current_user.id), class:"btn btn-primary" %>
-  <%= link_to "削除する", users_book_cart_path(book_cart), method: :delete, class:"btn btn-danger" %>
+    <div class="col-xs-9">
+      <table class="table book-index">
+　　　　<h1>my本棚</h1>
+　　　　<thead>
+          <th></th>
+          <th>タイトル</th>
+          <th>作者</th>
+          <th>ジャンル</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+　　　　　<% @book_carts.each do |book_cart| %>
+　　　　　<tr>
+            <td>
+              <%= link_to users_book_path(book_cart.book.id) do %>
+          　　<%= attachment_image_tag book_cart.book, :image, :fill, 100, 100, format: 'jpeg' %>
+          　　<% end %>
+            </td>
+          <td><%= book_cart.book.name %></td>
+          <td><%= book_cart.book.author %></td>
+          <td><%= book_cart.book.genre.name %></td>
+          <td><%= "#{book_cart.book.book_comments.count} コメント" %></td>
+          <td><%= "#{book_cart.book.favorites.count} いいね" %></td>
+          <td>
+            <%= link_to "詳細",users_book_path(book_cart.book.id), class:"btn btn-primary" %>
+            <%= link_to "読む",users_user_path(current_user.id), class:"btn btn-primary" %>
+            <%= link_to "削除する", users_book_cart_path(book_cart), method: :delete, class:"btn btn-danger" %>
+          </td>
+          </tr>
   <% end %>

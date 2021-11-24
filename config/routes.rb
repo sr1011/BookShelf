@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
   
-  namespace :admins do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-  end
   root 'homes#top'
   get 'homes/about'
   get '/search', to: 'searchs#search'
+  get '/genre_search', to: "searches#genre_search"
 
 #利用者
-
+  
   namespace :users do
-    resources :users, only: [:show]
+    resources :users, only: [:show, :edit, :update]
+    get 'users/unsubscribe'
+    patch 'users/withdraw'
     resources :subscriptions, only: [:index, :show]
     resources :join_carts, only: [:index, :create, :destroy]
     get "join_carts/confirm" => "join_carts#confirm"

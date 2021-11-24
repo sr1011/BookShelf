@@ -30,6 +30,7 @@ end
       render 'edit'
     end
  end
+ 
  private
 
   def genre_params
