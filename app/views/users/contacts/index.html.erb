@@ -1,9 +1,37 @@
-<h1>お問い合わせ一覧</h1>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= render "users/users/show", users: @users %>
+      <%= render "users/books/genre", genres: @genres %>
+    </div>
+    
+    <div class="col-xs-8">
+      <table class="table book-index">
+        <h2>お問い合わせ一覧</h2>
+        <thead>
+          <th></th>
+          <th>タイトル</th>
+          <th>本文</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <td></td>
+              <td><%= contact.title %></td>
+              <td>><%= contact.massage %></td>
+              <td><%= link_to "削除", users_contact_path(contact.id), method: :delete, class:"btn btn-danger" %></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<% @contacts.each do |contact| %>
-  <p>タイトル</p>
-  <span><%= contact.title %></span>
-  <p>本文</p>
-  <span><%= contact.massage %></span>
-  <%= link_to "削除", users_contact_path(contact.id), method: :delete, class:"btn btn-danger" %>
-<% end %>
+

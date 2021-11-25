@@ -7,7 +7,9 @@ class Users::ContactsController < ApplicationController
   end
 
   def index
+    @user = current_user
     @contacts = current_user.contacts.all
+    @genres = Genre.all
   end
   
   def destroy

@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-  <div class="row">
     <div class="col">
       <h3 class="my-5"><%= @user.name %> さんの会員情報編集</h3>
       <%= form_with model: @user,url: admins_user_path(@user),local: true do |f| %>
@@ -38,6 +37,5 @@
       </div>
       <% end %>
     </div>
-  </div>
  </div>
 </div>

@@ -1,2 +1,39 @@
-<h1>Users::Joins#confirm</h1>
-<p>Find me in app/views/users/joins/confirm.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="my-5"><%= @user.name %>さんの詳細</h3>
+        <div class="row">
+          <div class="offset-2 col-2 mb-3">会員ID</div>
+          <div class="col-8"><%= @user.id %></div>
+
+          <div class="offset-2 col-2 mb-3">氏名</div>
+          <div class="col-8"><%= @user.name %></div>
+
+          <div class="offset-2 col-2 mb-3">郵便番号</div>
+          <div class="col-8"><%= @user.postal_code %></div>
+
+          <div class="offset-2 col-2 mb-3">住所</div>
+          <div class="col-8"><%= @user.address %></div>
+
+          <div class="offset-2 col-2 mb-3">電話番号</div>
+          <div class="col-8"><%= @user.phone_number %></div>
+
+          <div class="offset-2 col-2 mb-3">メールアドレス</div>
+          <div class="col-8"><%= @user.email %></div>
+
+          <div class="offset-2 col-2 mb-3">会員ステータス</div>
+          <div class="col-8">
+            <% if @user.is_deleted? %>
+              <span class="text-secondary">退会</span>
+            <% else %>
+              <span class="text-success">有効</span>
+            <% end %>
+          </div>
+        </div>
+
+      <div class="offset-2 col-8 mt-3">
+      
+      </div>
+    </div>
+  </div>
+</div>

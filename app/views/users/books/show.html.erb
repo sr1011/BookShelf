@@ -11,7 +11,9 @@
       <h4><strong><%= @book.name %></strong></h4>
       <p><%= @book.author%></p>
       <p><%= @book.descript%></p>
-        <%= render "users/favorites/favorites", book: @book %>
+      
+        <div class="favorite"><%= render "users/favorites/favorite", book: @book %></div>
+        
       コメント件数：<%= @book.book_comments.count %>
       <% if user_signed_in? %>
       <%= form_with model:@book_cart, url:users_book_carts_path, method: :post, local:true do |f|%>
@@ -24,7 +26,7 @@
 
       <div class="col-sm-12">
         <div>
-          <h3>
+          <h3>コメント</h3>
           <table>
             <thead>
             <th>ユーザー名</th>
@@ -36,7 +38,6 @@
             <th></th>
             <th></th>
           </thead>
-          </h3>
           <tbody>
             <% @book.book_comments.each do |book_comment| %>
             <tr>
@@ -44,7 +45,9 @@
               <td></td>
               <td><%= book_comment.comment %></td>
               <td><% if book_comment.user == current_user %>
+                  <div>
                   <%= link_to "削除", users_book_book_comments_path(book_comment.book, book_comment), method: :delete %>
+                  </div>
                   <% end %>
               </td>
             </tr>

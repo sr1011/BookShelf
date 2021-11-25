@@ -9,5 +9,5 @@
      <p><%= subscription.descript %></p>
      <p><% tax_in = subscription.price * 1.10 %></p>
      <p>¥ <%= tax_in.round.to_s(:delimited) %>（税込）</p>
-     <%= link_to "詳細",users_subscription_path(subscription.id) %>
+     <%= link_to "入会する",users_joins_complete_path %>
     <% end %>

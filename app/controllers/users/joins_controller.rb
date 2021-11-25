@@ -14,6 +14,7 @@ class Users::JoinsController < ApplicationController
 
   def confirm
     @join_carts = current_user.join_carts
+    @user = current_user
   end
 
   def complete
