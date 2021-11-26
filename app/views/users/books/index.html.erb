@@ -10,11 +10,12 @@
         <h2>Books</h2>
         <thead>
           <th></th>
-          <th>タイトル</th>
-          <th>作者</th>
-          <th>ジャンル</th>
-          <th></th>
-          <th></th>
+          <th><%= sort_order "name", "タイトル" %></th>
+          <th><%= sort_order "author", "作者" %></th>
+          <th><%= sort_order "genre", "ジャンル" %></th>
+          <th><%= sort_order "created_at", "登録順" %></th>
+          <th><%#= sort_order "book_comments", "コメント数" %></th>
+          <th><%#= sort_order "favorites", "いいね数" %></th>
           <th></th>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
               <td><%= book.name %></td>
               <td><%= book.author %></td>
               <td><%= book.genre.name %></td>
+              <td><% book.created_at %></td>
               <td><%= "#{book.book_comments.count} コメント" %></td>
               <td><%= "#{book.favorites.count} いいね" %></td>
             </tr>

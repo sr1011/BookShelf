@@ -1,4 +1,5 @@
 class Admins::BooksController < ApplicationController
+  
   def new
     @book = Book.new
     @genres = Genre.all
@@ -13,9 +14,6 @@ class Admins::BooksController < ApplicationController
   def index
     @books = Book.all
     @genres = Genre.all
-  end
-
-  def show
   end
 
   def edit
@@ -35,6 +33,8 @@ class Admins::BooksController < ApplicationController
     redirect_to admins_books_path  #一覧画面へ
   end
   
+  private
+    
   def book_params
     params.require(:book).permit(:name, :image, :author, :descript, :genre_id, :is_active)
   end

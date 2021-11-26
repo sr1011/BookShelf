@@ -12,10 +12,9 @@
       <div class="container">
         <tr>
           <th>
-            <h2>新着商品</h2>
+            <h2>新着商品（１位〜４位）</h2>
+            <div><%=link_to "全ての商品を見る",users_books_path%></div>
           </th>
-        <!--見出し-->
-        <!--<div class="img-flex-4">-->
           <div class="row">
             <% @books.each.with_index(1) do |book| %>
 
@@ -30,10 +29,6 @@
           </div>
       </tr>
 
-      </div>
-        <!--内容-->
-        <p class="shopindex"><%=link_to "全ての商品を見る",users_books_path %></p>
-    </div>
     </div>
   </body>
 </main>
