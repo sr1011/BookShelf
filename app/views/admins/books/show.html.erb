@@ -1,14 +1,61 @@
-<h1>Book詳細</h1>
+<div class="container">
+  <h2>Book詳細</h2>
 
-  <h4>商品画像</h4>
-  <%= @book.image %>
-  <h4>タイトル</h4>
-  <%= @book.name %>
-  <h4>作者</h4>
-  <%= @book.author %>
-  <h4>本文</h4>
-  <%= @book.descript %>
-  <h4>ジャンル</h4>
-  <%= @book.genre_id %>
-  
-<% end %>
+    <div class="row">
+    <div class="col-6">
+      <%= attachment_image_tag @book,:image, size:"500x400", format: 'jpeg' %>
+    </div>
+    <div class="col-6">
+      <h4><strong><%= @book.name %></strong></h4>
+      <p><%= @book.author %></p>
+      <p><%= @book.descript %></p>
+        <div class="favorite"><%= render "users/favorites/favorite", book: @book %></div>
+        <div><%= link_to "編集", edit_admins_book_path(@book.id),class: 'btn btn-success' %></div>
+    </div>
+    </div>
+
+      <div class="col-md-12">
+        <div>
+          <h3>コメント</h3>
+          <table>
+            <thead>
+            <th>ユーザー名</th>
+            <th></th>
+            <th>コメント</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @book.book_comments.each do |book_comment| %>
+            <tr>
+              <td><%= book_comment.user.name %></td>
+              <td></td>
+              <td><%= book_comment.comment %></td>
+              <td><% if book_comment.user == current_user %>
+                  <div>
+                  <%= link_to "削除", users_book_book_comments_path(book_comment.book, book_comment), method: :delete %>
+                  </div>
+                  <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="col-sm-12">
+        <h3>
+        <div>
+          <%= form_with(model:[@book, @book_comment], url:users_book_book_comments_path(@book), local: true) do |f| %>
+            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+            <%= f.submit "送信する" %>
+          <% end %>
+        </div>
+        </h3>
+      </div>
+  </div>
+</div>

@@ -2,12 +2,10 @@
   <h2>Book詳細</h2>
 
     <div class="row">
-    
-    
-    <div class="col-md-4">
-      <%= attachment_image_tag @book,:image, size:"300x200", format: 'jpeg' %>
+    <div class="col-6">
+      <%= attachment_image_tag @book,:image, size:"500x400", format: 'jpeg' %>
     </div>
-    <div class="col-md-4">
+    <div class="col-6" id="book_<%= @book.id %>">
       <h4><strong><%= @book.name %></strong></h4>
       <p><%= @book.author%></p>
       <p><%= @book.descript%></p>
@@ -24,7 +22,7 @@
     </div>
     </div>
 
-      <div class="col-sm-12">
+      <div class="col-md-12">
         <div>
           <h3>コメント</h3>
           <table>

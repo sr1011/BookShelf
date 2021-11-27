@@ -25,6 +25,12 @@ class Admins::BooksController < ApplicationController
     @genres = Genre.all
   end
   
+  def show
+    @book = Book.find(params[:id])
+    @book_comment = BookComment.new
+    @genres = Genre.all
+  end
+  
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
