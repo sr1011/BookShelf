@@ -1,14 +1,20 @@
-<h1>Book新規投稿</h1>
-<%= form_with model: @book, url:'/admins/books', local:true do |f| %>
-  <h4>商品画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>タイトル</h4>
-  <%= f.text_field :name %>
-  <h4>作者</h4>
-  <%= f.text_field :author %>
-  <h4>本文</h4>
-  <%= f.text_area :descript %>
-  <h4>ジャンル</h4>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--" %>
-  <%= f.submit '投稿' %>
-<% end %>
+<div class="container">
+    <div class="row">
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <h1 class="mt-5">Book新規投稿</h1>
+          <%= form_with model: @book, url:'/admins/books', local:true do |f| %>
+            <h4>商品画像</h4>
+            <%= f.attachment_field :image %>
+            <h4>タイトル</h4>
+            <%= f.text_field :name %>
+            <h4>作者</h4>
+            <%= f.text_field :author %>
+            <h4>本文</h4>
+            <%= f.text_area :descript %>
+            <h4>ジャンル</h4>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--" %>
+            <%= f.submit '投稿' %>
+          <% end %>
+      </div>
+   </div>
+ </div>

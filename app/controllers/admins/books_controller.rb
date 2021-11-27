@@ -1,4 +1,5 @@
 class Admins::BooksController < ApplicationController
+  before_action :authenticate_admin!
   
   def new
     @book = Book.new
@@ -7,8 +8,11 @@ class Admins::BooksController < ApplicationController
   
   def create
     @book = Book.new(book_params)
-    @book.save
-    redirect_to admins_books_path
+    if @book.save
+      redirect_to admins_books_path
+    else
+      render :new
+    end
   end
 
   def index

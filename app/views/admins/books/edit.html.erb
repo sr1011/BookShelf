@@ -46,15 +46,6 @@
                 <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %>
               </td>
             </tr>
-            <tr>
-              <td>
-                <h4>税抜価格</h4>
-              </td>
-              <td>
-                <%= f.text_field :price %>
-              </td>
-            </tr>
-            
           </tbody>
         </table>
         <% end %>

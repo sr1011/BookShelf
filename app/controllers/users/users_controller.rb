@@ -1,4 +1,5 @@
 class Users::UsersController < ApplicationController
+  before_action :authenticate_user!
   
   def unsubscribe
     @user = User.find_by(email: params[:email])

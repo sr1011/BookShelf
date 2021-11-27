@@ -1,4 +1,5 @@
 class Users::JoinsController < ApplicationController
+  before_action :authenticate_user!
   
   def new
     @join = Join.new

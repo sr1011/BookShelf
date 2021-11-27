@@ -1,4 +1,5 @@
 class Users::BookCartsController < ApplicationController
+  before_action :authenticate_user!
   
   def create
     @book_cart = current_user.book_carts.new(book_cart_params)

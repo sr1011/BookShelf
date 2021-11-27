@@ -5,8 +5,11 @@
     <div>
       <h4 class="text-center">ようこそ、BookShelfへ!<br>
       このサイトは、本読み放題のになります。<br>
-      会員でない方も商品の閲覧はできますが、<br>
-      本を読むためには会員登録が必要になります。</h4>
+      本を読むためには有料の会員登録が必要になります。
+      <%= link_to new_user_registration_path, class:"btn btn-success" do %>
+        入会する
+      <% end %>
+      </h4>
     </div>
     <div class="sub-visual">
       <div class="container">
