@@ -29,14 +29,6 @@
 
 https://docs.google.com/spreadsheets/d/1RFmlExrUhzLEWcDQEHMsr2_24_YDq_MHcx0K41SlnYY/edit?usp=sharing
 
-## ER図
-
-[Untitled Diagram.drawio.pdf](https://github.com/sr1011/webcamp-Reade/files/7471747/Untitled.Diagram.drawio.pdf)
-
-## テーブル定義書
-
-https://docs.google.com/spreadsheets/d/1WPOSvNl0DeKG8LfWeW5onZbAD36cjn_1q1RAwHRCRxA/edit?usp=sharing
-
 
 ## 開発環境
 
