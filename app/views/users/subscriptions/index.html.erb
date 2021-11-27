@@ -1,13 +1,17 @@
+<main>
+ <div class="container">
+    <div class="row">
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <h1 class="mt-5">サブスクリプションメニュー(全<%= @subscriptions.count %>件)</h1>
 
-
-      <h4>
-        サブスクリプションメニュー(全<%= @subscriptions.count %>件)
-      </h4>
- 
-    <% @subscriptions.each do |subscription| %>
-     <p><%= subscription.title %></p>
-     <p><%= subscription.descript %></p>
-     <p><% tax_in = subscription.price * 1.10 %></p>
-     <p>¥ <%= tax_in.round.to_s(:delimited) %>（税込）</p>
-     <%= link_to "入会する",users_joins_complete_path %>
-    <% end %>
+        <% @subscriptions.each do |subscription| %>
+         <p><%= subscription.title %></p>
+         <p><%= subscription.descript %></p>
+         <p><% tax_in = subscription.price * 1.10 %></p>
+         <p>¥ <%= tax_in.round.to_s(:delimited) %>（税込）</p>
+         <%= link_to "入会する",users_joins_complete_path %>
+        <% end %>
+    </div>
+  </div>
+ </div>
+</main>
