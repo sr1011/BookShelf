@@ -3,7 +3,7 @@
     <div class="row">
       <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
         <h1 class="mt-5">商品編集</h1>
-        <%= form_with model: @book, url:"/admins/books/#{@book.id}/edit", local:true do |f| %>
+        <%= form_with model: @book, url:"/admins/books/#{@book.id}", method: :patch, local:true do |f| %>
         <table>
           <tbody>
             <tr>
@@ -45,6 +45,7 @@
               <td>
                 <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %>
               </td>
+              <td><%= f.submit '編集', class: 'btn btn-success' %></td>
             </tr>
           </tbody>
         </table>

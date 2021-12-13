@@ -34,7 +34,7 @@ class Admins::BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
-    redirect_to redirect_to admins_books_path #一覧画面へ
+    redirect_to admins_books_path #一覧画面へ
   end
   
   def destroy
