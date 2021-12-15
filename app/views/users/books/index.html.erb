@@ -30,7 +30,7 @@
               <td><%= book.author %></td>
               <td><%= book.genre.name %></td>
               <td><% book.created_at %></td>
-              <td><%= "#{book.book_comments.count} コメント" %></td>
+              <td><%= "#{book.comment_count(book)} コメント" %></td>
               <td><%= "#{book.favorites.count} いいね" %></td>
             </tr>
             <% end %>
