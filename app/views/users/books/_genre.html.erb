@@ -10,7 +10,9 @@
     <% genres.each do |genre| %>
     <tr>
       <td>
+        <%#= link_to users_genre_path(genre.id) do %>
         <%= genre.name %>
+        <%# end %>
       </td>
     </tr>
     <% end %>
