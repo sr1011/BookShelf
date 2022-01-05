@@ -3,8 +3,11 @@ class Users::ContactsController < ApplicationController
   
   def create
     @contact = current_user.contacts.new(contact_params)
-    @contact.save
-    redirect_to users_contacts_path
+    if @contact.save
+     redirect_to users_contacts_path
+    else
+     render new_users_contact_path
+    end
   end
 
   def index

@@ -3,8 +3,11 @@ class Users::InquiriesController < ApplicationController
   
   def create
     @inquire = current_user.inquire.new(inquire_params)
-    @inquire.save
-    redirect_to users_inquiries_path
+    if @inquire.save
+     redirect_to users_inquiries_path
+    else
+      render :new
+    end
   end
 
   def index

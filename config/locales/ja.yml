@@ -4,3 +4,25 @@ ja:
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
+          
+    errors:
+      messages:
+        not_saved: "保存できませんでした。"
+        
+    activerecord:
+      models:
+        user: "ユーザー"
+        
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "を入力してください"
+            email:
+              blank: "を入力してください"
