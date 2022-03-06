@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 #管理者
   
   namespace :admins do
-    resources :subscriptions, only: [:index, :new, :create, :destroy, :edit, :update]
+    #resources :subscriptions, only: [:index, :new, :create, :destroy, :edit, :update]
     resources :books, only: [:new, :index, :create, :show, :edit, :update, :destroy]
     resources :genres, only: [:index, :edit, :create, :destroy, :update]
     resources :contacts, only: [:index]

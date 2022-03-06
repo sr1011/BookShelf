@@ -16,7 +16,7 @@ class SearchsController < ApplicationController
   def search_for(model, content, method)
     if model == 'book'
       if method == 'perfect'
-      Book.where(name: content)
+        Book.where(name: content)
       else
         Book.where('name LIKE ?', '%'+content+'%')
       end
