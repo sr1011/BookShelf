@@ -35,7 +35,6 @@ def user_state
   return if !@user
   ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
   if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
-      flash[:notice] = "このアカウントは退会済みです。新規登録を行ってください。"
       redirect_to new_user_registration_path
   end
 end

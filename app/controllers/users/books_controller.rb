@@ -4,7 +4,7 @@ class Users::BooksController < ApplicationController
   helper_method :sort_column, :sort_direction
   
   def index
-    @books = Book.order("#{sort_column} #{sort_direction}")
+    @books = Book.order("#{sort_column} #{sort_direction}") #privateのsort_column,sort_directionを使用
     @genres = Genre.all
   end
 
